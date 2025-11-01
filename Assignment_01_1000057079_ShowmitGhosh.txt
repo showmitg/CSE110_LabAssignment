@@ -1,0 +1,88 @@
+//task-1
+import java.util.Scanner;
+public class task_1
+{
+    public static void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of minutes: ");
+        int minutes = sc.nextInt();
+        int t_days = minutes/(60*24);
+        int years = t_days/365;
+        int remaining_days = t_days%365;
+        System.out.println( minutes+ " is approximately " +years+ " years and " +remaining_days+ "  days.");
+    }
+}
+
+
+//task-2
+public class task_2
+{
+    public static void main(String [] args)
+    {
+        int a = 2;
+        int b = 5;
+        int c = 8;
+        int d = (2*b*(c-a)/3)+7;                         //[Answer: 27]
+        System.out.println("The value of d = " + d);
+    }
+}
+
+
+//task-3
+import java.util.Scanner;
+public class task_3
+{
+    public static void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your ID: ");
+        int my_id = sc.nextInt();
+        int lastTwoDigits = my_id % 100;
+        int digit1 = lastTwoDigits % 10;           // rightmost digit
+        int digit2 = lastTwoDigits / 10;           // second last digit
+        System.out.println("The rightmost digits of my ID in reverse order is ");
+        System.out.println(digit1+ " (Last number)");
+        System.out.println(digit2+ " (2nd last number)");
+    }
+
+}
+
+
+//task-4
+public class task_4 
+{
+    public static void main(String[] args)
+    {
+        int a = 8;
+        int b = 3; 
+        double side = Math.sqrt(Math.pow(a/2, 2) + Math.pow(b, 2));
+        double circumference = 6 * side;
+        double area = (3 * Math.sqrt(3)/ 2)* Math.pow(side, 2);
+
+        System.out.println("Circumference of the Hexagon = " + circumference);
+        System.out.println("Area of the Hexagon = " + area);
+    }
+}
+
+
+//task-5
+public class task_5
+{
+    public static void main(String [] args)
+    {
+        double a = 4.5;
+        double b = 9.5;
+        double c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));     //hypotenuse calculation
+        double sinA = a/c;
+        double cosA = b/c;
+        double sinB = b/c;
+        double cosB = a/c;
+        System.out.println("sinA = " + sinA);
+        System.out.println("cosA = " + cosA);
+        System.out.println("sinB = " + sinB);
+        System.out.println("cosB = " + cosB);
+
+    }
+}
+

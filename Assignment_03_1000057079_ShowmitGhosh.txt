@@ -1,0 +1,250 @@
+//task_1
+import java.util.Scanner;
+public class task_1
+{
+    public static void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in40);
+        int n = sc.nextInt();
+        for(int i = 1; i <= n; i++)
+        {
+            if(i % 5 == 0 && i % 3 != 0)
+            {
+                System.out.println(i);
+            }
+        }
+    }
+}
+
+
+
+
+
+//task_2
+public class task_2
+{
+    public static void main(String [] args)
+    {
+        int n = 600, sum = 0;
+        for(int i = 1; i <= n; i++)
+        {
+            if((i % 7 != 0 && i % 9 == 0) || (i % 7 == 0 && i % 9 != 0))
+            {
+                sum +=  i;
+            }
+           
+        }
+        System.out.print(sum);
+    }
+}
+
+
+
+
+
+//task_3
+import java.util.Scanner;
+public class task_3
+{
+    public static void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an Integer: ");
+        int n = sc.nextInt();
+        int count_p = 0, count_n = 0;
+        for(int i = 1; i<=n; i++)
+        {
+            System.out.print("Enter number " +i+ ":");
+            int numi = sc.nextInt();
+            if(numi >= 0)
+            {
+                count_p++;
+            }
+            else
+            {
+                count_n++;
+            }
+        }
+            System.out.println(count_p + " Non-negative Numbers");
+            System.out.println(count_n +" Negative Numbers");
+
+        
+    }
+}
+
+
+
+
+
+//task_4
+import java.util.Scanner;
+public class task_4
+{
+    public static void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int sum = 0;
+        System.out.println("The odd numbers are:  ");
+        for(int i = 1; i <= n; i++)
+        {
+            if(i % 2 != 0)
+            {
+                //odd number
+                System.out.println(i);
+                sum += i;
+            }
+            
+        }
+        System.out.print("The Sum of odd Natural Numbers up to 5 terms is: " + sum);
+    }
+}
+
+
+
+
+
+//task_5
+import java.util.Scanner;
+public class task_5
+{
+    public static void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int sum = 0;
+        for(int i = 1; i <= 10; i++)
+        {
+            System.out.print("Enter Number: ");
+            int num = sc.nextInt();
+            sum += num;
+            System.out.println("Sum = " +sum);
+        }
+    }
+}
+
+
+
+
+
+//task_6
+import java.util.Scanner;
+public class task_6
+{
+    public static void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        System.out.println("Divisors of " + num + ": ");
+        for(int i = 1; i <= num; i++)
+        {
+            if(num % i == 0)
+            {
+                System.out.println(i);
+            }
+        }
+    }
+}
+
+
+
+
+
+//task_7
+import java.util.Scanner;
+public class task_7
+{
+    public static void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        int x;
+        for(int i = num; i >= 0; i /= 10)
+        {
+            x = i % 10;
+            System.out.print(x);
+            if(i<10)
+            {
+                break;
+            }
+            System.out.print(", ");
+
+        }
+    }    
+}    
+
+
+
+
+
+//task_8
+import java.util.Scanner;
+public class task_8
+{
+    public static void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        //lets do counting first
+        int num = sc.nextInt();
+        int pow = 1;
+        int c = 0;
+        for(int i = num; i > 0; i /= 10)
+        {
+            pow *= 10; //calculating the power of 10^n
+        }
+
+        pow /= 10; //10 to the power of (n-1) 
+
+        for(int a = num; a > 0; pow /= 10)
+        {
+            c = a / pow;
+            System.out.print(c);
+            a = a % pow; //remove the left most digit
+            if(pow > 1)
+            {
+                System.out.print(", ");
+            }
+        }
+    }
+}
+
+
+
+
+
+//task_9
+import java.util.Scanner;
+public class task_9
+{
+    public static void main(String [] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        int sum = 0, count = 0;
+        for(int i = 1; i < num; i++)
+        {
+            //calculate the divisor sum 
+            if(num % i == 0)
+            {
+                sum += i;
+                count++;
+            }
+        }
+        if(count == 1)
+        {
+            System.out.println(num + " is a a prime number");
+        }
+        else
+        {
+            System.out.println(num + " is not a prime number");
+        }
+
+        if(sum == num)
+        {
+            System.out.print(num + " is a perfect number");
+        }
+        else
+        {
+            System.out.print(num + " is not a perfect number");
+        }
+    }
+}

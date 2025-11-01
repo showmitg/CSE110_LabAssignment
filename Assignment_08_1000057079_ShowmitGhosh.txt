@@ -1,0 +1,185 @@
+
+//assignment 8 task 1
+import java.util.Scanner;
+
+public class lab8_task1 {
+    public static boolean isPrime(int num) {
+        boolean isprime = true;
+        int dcount = 0;
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                dcount++;
+            }
+            if (dcount > 2) {
+                isprime = false;
+                break;
+            }
+        }
+        return isprime;
+    }
+
+    public static boolean isPerfect(int num) {
+        boolean isperfect = false;
+        int sum = 0;
+        for (int i = 1; i < num; i++) {
+            if (num % i == 0) {
+                sum += i;
+            }
+        }
+        if (sum == num) {
+            isperfect = true;
+        }
+        return isperfect;
+    }
+
+    public static int special_sum(int num) {
+        int sum = 0;
+        for (int i = 2; i <= num; i++) {
+            if (isPrime(i)) {
+                sum += i;
+            } else if (isPerfect(i)) { // a number cant be prime and perfect at the same time!
+                sum += i;
+            }
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter task - 1 : ");
+        char task = sc.next().charAt(0);
+        System.out.print("Enter Number = ");
+        int num = sc.nextInt();
+        if (task == 'a') { // prime number check --> a
+            boolean check = isPrime(num);
+            System.out.println(check);
+        } else if (task == 'b') { // perfect number check --> b
+
+            boolean check = isPerfect(num);
+            System.out.println(check);
+        } else if (task == 'c') { // special number check --> c
+            int result = special_sum(num);
+            System.out.println(result);
+        }
+    }
+}
+
+
+
+
+
+
+
+//assignment 8 task 2
+import java.util.Scanner;
+
+public class lab8_task2 {
+    public static void showDots(int n) {
+        for (int i = 1; i <= n; i++) {
+            System.out.print(".");
+        }
+    }
+
+    public static void show_palindrome(int n) {
+        for (int i = 1; i <= n; i++) {
+            System.out.print(i);
+        }
+        for (int i = (n - 1); i > 0; i--) {
+            System.out.print(i);
+        }
+    }
+
+    public static void showDiamond(int n) {
+        for (int b = 1; b <= n; b++) {
+            showDots(n - b);
+            show_palindrome(b);
+            showDots(n - b);
+            System.out.println();
+        }
+        for (int a = 1; a < n; a++) {
+            showDots(a);
+            show_palindrome(n - a);
+            showDots(a);
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the task: ");
+        char task = sc.next().charAt(0);
+        System.out.print("Enter the number: ");
+        int num = sc.nextInt();
+        if (task == 'a') { // a
+            showDots(num);
+        } else if (task == 'b') { // b
+            show_palindrome(num);
+        } else if (task == 'c') { // c
+            showDiamond(num);
+        }
+
+    }
+}
+
+
+
+
+
+
+//assignment 8 task 3
+
+import java.util.Scanner;
+
+public class lab8_task3 {
+    public static double calcTax(int age, int sal) {
+        double tax;
+        if (age < 18) {
+            tax = 0;
+        } else {
+            if (sal < 10000) {
+                tax = 0;
+            } else if (sal >= 10000 && sal <= 20000) {
+                tax = (double) sal * 0.07;
+            } else {
+                tax = (double) sal * 0.14;
+            }
+        }
+        return tax;
+    }
+
+    public static void calcYearlyTax() {
+        Scanner sc = new Scanner(System.in);
+        int age = sc.nextInt();
+        double tsal = 0;
+        if (age > 18) {
+            for (int i = 1; i < 13; i++) {
+                int sal = sc.nextInt();
+                double tax = calcTax(age, sal);
+                System.out.printf("Month" + i + ": " + "%.1f", tax);
+                tsal += tax;
+                System.out.println();
+            }
+            System.out.printf("Total Yearly Tax: " + "%.1f", tsal);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the task: ");
+        char task = sc.next().charAt(0);
+        if (task == 'a') {
+            System.out.print("Enter your age: ");
+            int age = sc.nextInt();
+            System.out.print("Your salary: ");
+            int sal = sc.nextInt();
+            double tax = calcTax(age, sal);
+            System.out.printf("%.1f", tax);
+        } else if (task == 'b') {
+            calcYearlyTax();
+        }
+    }
+}
